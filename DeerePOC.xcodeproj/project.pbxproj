@@ -165,6 +165,7 @@
 				1B51CB891913BE320089C772 /* Sources */,
 				1B51CB8A1913BE320089C772 /* Frameworks */,
 				1B51CB8B1913BE320089C772 /* Resources */,
+				3FD4DD621918FD40003C62EA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -247,6 +248,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FD4DD621918FD40003C62EA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# This splits a two-decimal version string, such as \"0.45.123\", allowing us to increment the third position.\n\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\n\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\n\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B51CB891913BE320089C772 /* Sources */ = {
