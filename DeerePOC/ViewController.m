@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // 6May14
+   
     // Version change will be reflect now
 	// Do any additional setup after loading the view, typically from a nib.
 }
