@@ -26,7 +26,7 @@
 {
     [super viewWillAppear:animated];
      NSLog(@"ViewWillApear");
-    // Code part
+    // Do code for aaperance here.
 }
 
 - (void)didReceiveMemoryWarning
